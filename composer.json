@@ -1,0 +1,19 @@
+{
+    "name": "developingw/turbosmsua",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "DevelopingW\\TurboSMSua\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fire.anton@gmail.com",
+            "email": "developing.w@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php" : ">=5.6"
+    }
+}
