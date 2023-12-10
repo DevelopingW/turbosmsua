@@ -26,7 +26,7 @@ class API extends Connect
     /**
      * Send SMS
      *
-     * @param string $num
+     * @param string|array $num
      * @param string $text
      * @param string $sender
      * @param string $senderViber
@@ -131,9 +131,36 @@ class API extends Connect
 
     }
 
-    public function messageStatus()
+    /**
+     * @param string|array $statusList
+     * @return array
+     * @throws \Exception
+     */
+    public function messageStatus($statusList)
     {
+        if (empty($statusList)) {
+            throw new \LengthException('Number must be a string or array of strings');
+        }
 
+        if (!(is_string($statusList) || is_array($statusList))) {
+            throw new \Exception('$num must be string or array');
+        }
+
+        $method = '/message/status.json';
+        $data = [];
+
+        if (is_array($statusList)) {
+            $data['messages'] = $statusList;
+        } else {
+            $data['messages'][] = $statusList;
+        }
+
+        $result = $this->request($method, $data);
+        if (in_array($result->response_code == 0, $this->ok_responses)) {
+            return (array)$result->response_result;
+        } else {
+            throw new \Exception($result->response_status);
+        }
     }
 
     public function chatSenders()
