@@ -1,4 +1,4 @@
-turbosms.ua HTTP API library
+TurboSMS HTTP API library
 
 API HELP: https://turbosms.ua/api.html
 
@@ -18,6 +18,8 @@ Example usage Get Balance
 ```php
 <?php
 
+use DevelopingW\TurboSMSua\API;
+
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
 print_r($smsApi->getUserBalance());
@@ -33,6 +35,8 @@ Example usage Default Allow Senders
 ------------
 ```php
 <?php
+
+use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
@@ -59,6 +63,8 @@ Example usage Message Send
 ------------
 ```php
 <?php
+
+use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
@@ -90,6 +96,8 @@ Example usage Message Status
 ```php
 <?php
 
+use DevelopingW\TurboSMSua\API;
+
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
 print_r($smsApi->messageStatus('f3ab7c22-9481-8d1d-4fa6-00a9e0e6cf67');
@@ -117,9 +125,9 @@ Array (
             [message_id] => f4ab7c22-2371-7d2d-4fa6-00a9e0e4cf68
             [response_code] => 0
             [recipient] => 380001111111
-            [sent] => 2023-12-11 15:01:52
+            [sent] => 
             [updated] => 2023-12-11 15:02:00
-            [status] => Delivered
+            [status] => Queued
             [type] => sms
             [response_status] => OK
         )
