@@ -126,3 +126,11 @@ Array (
     )
 )
 ```
+
+Methods
+------------
+***
+* getDefaultSenders
+* messageSend
+* messageStatus
+***
