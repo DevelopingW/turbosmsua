@@ -26,7 +26,7 @@ class TurboSMSAPI extends TurboSMSConnect
     /**
      * Send SMS
      *
-     * @param int $num
+     * @param string $num
      * @param string $text
      * @param string $sender
      * @param string $senderViber
@@ -35,8 +35,20 @@ class TurboSMSAPI extends TurboSMSConnect
      */
     public function messageSend($num, $text, $sender = 'MAGAZIN', $senderViber = '')
     {
-        if (!(is_int($num) || is_array($num))) {
-            throw new \Exception('$num must be int or array');
+        if (empty($num)) {
+            throw new \LengthException('Number must be a string or array of strings');
+        }
+
+        if (empty($text)) {
+            throw new \LengthException('Text is empty');
+        }
+
+        if (empty($sender)) {
+            throw new \LengthException('Sender name is empty');
+        }
+
+        if (!(is_string($num) || is_array($num))) {
+            throw new \Exception('$num must be string or array');
         }
 
         if (!is_string($text)) {
@@ -53,18 +65,6 @@ class TurboSMSAPI extends TurboSMSConnect
 
         $method = '/message/send.json';
         $data = [];
-
-        if (empty($num)) {
-            throw new \LengthException('Number must be a string or array of strings');
-        }
-
-        if (empty($text)) {
-            throw new \LengthException('Text is empty');
-        }
-
-        if (empty($sender)) {
-            throw new \LengthException('Sender name is empty');
-        }
 
         if (is_array($num)) {
             $data['recipients'] = $this->phoneFormat($num);
