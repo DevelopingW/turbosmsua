@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * turbosms.ua HTTP API implementation.
+ *
+ * @author Anton Kalochelitis <developing.w@gmail.com>
+ * @version 2.0.1
+ */
+
 namespace DevelopingW\TurboSMSua;
 
 class REQUEST_STATUS_
