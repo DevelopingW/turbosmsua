@@ -187,6 +187,24 @@ class TurboSMSAPI extends TurboSMSConnect
     }
 
     /**
+     * @return array
+     */
+    public function getDefaultSenders()
+    {
+        return [
+            'TAXI',
+            'SERVIS TAXI',
+            'Dostavka24',
+            'MAGAZIN',
+            'IT Alarm',
+            'AKCIYA',
+            'BEAUTY',
+            'Best-Shop',
+            'BonusShop',
+        ];
+    }
+
+    /**
      * @return mixed
      * @throws \Exception
      */
