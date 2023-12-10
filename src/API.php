@@ -216,11 +216,11 @@ class API extends Connect
     }
 
     /**
-     * Get free senders from TurboSMS
+      * Get free SMS senders from TurboSMS
      *
      * @return array
      */
-    public function getDefaultSenders()
+    public function getSMSDefaultSenders()
     {
         return [
             'TAXI',
@@ -232,6 +232,18 @@ class API extends Connect
             'BEAUTY',
             'Best-Shop',
             'BonusShop',
+        ];
+    }
+
+    /**
+     * Get free SMS senders from TurboSMS
+     *
+     * @return array
+     */
+    public function getViberDefaultSenders()
+    {
+        return [
+            'Mobibon',
         ];
     }
 

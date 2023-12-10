@@ -5,7 +5,7 @@ API HELP: https://turbosms.ua/api.html
 What is this?
 -------------
 
-This library implements HTTP api for turbosms.ua service.
+This library implements HTTP api for https://turbosms.ua service.
 
 Installation
 ------------
@@ -22,7 +22,9 @@ use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
-print_r($smsApi->getUserBalance());
+$balance = $smsApi->getUserBalance();
+
+print_r($balance);
 ```
 Result:
 ```
@@ -31,7 +33,12 @@ Array (
 )
 ```
 
-Example usage Default Allow Senders
+----
+
+Example usage Default SMS Allow Senders for Test
+------------
+
+Желательно в начале сообщение указывать слово Тест
 ------------
 ```php
 <?php
@@ -40,7 +47,9 @@ use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
-print_r($smsApi->getDefaultSenders());
+$senderList = $smsApi->getSMSDefaultSenders();
+
+print_r($senderList);
 ```
 Result:
 ```
@@ -59,6 +68,32 @@ Array (
 )
 ```
 
+----
+
+Example usage Default Viber Allow Senders for Test
+------------
+Желательно в начале сообщение указывать слово Тест
+------------
+```php
+<?php
+
+use DevelopingW\TurboSMSua\API;
+
+$senderList = $smsApi = new API($_ENV['TURBOSMS_KEY']);
+
+print_r($senderList);
+```
+Result:
+```
+Array (
+    [
+        'Mobibon',
+    ]
+)
+```
+
+----
+
 Example usage Message Send
 ------------
 ```php
@@ -68,8 +103,11 @@ use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
-print_r($smsApi->messageSend('380001111111', 'TEXT Message'));
-print_r($smsApi->messageSend('380001111111', 'TEXT Message', 'MAGAZIN'));
+$message1 = $smsApi->messageSend('380001111111', 'TEXT Message');
+$message2 = $smsApi->messageSend('380001111111', 'TEXT Message', 'MAGAZIN');
+
+print_r($message1);
+print_r($message2);
 ```
 Result:
 ```
@@ -90,6 +128,65 @@ Array (
 	)
 )
 ```
+----
+
+* Для метода messageSend есть тонкие настройки
+```php
+<?php
+
+use DevelopingW\TurboSMSua\API;
+
+$smsApi = new API($_ENV['TURBOSMS_KEY']);
+
+// Данное сообщение будет отправлено в указанное время
+$message1 = $smsApi
+                ->setStartTime(\DateTime::createFromFormat('d.m.Y H:i', '10.12.2023 9:00'));
+                ->messageSend('380001111111', 'TEXT Message');
+                
+// Данное сообщение будет отправлено через Viber
+$message2 = $smsApi
+                ->setMode('viber')
+                ->messageSend('380001111111', 'TEXT Message', 'MAGAZIN');
+                
+// Данное сообщение будет отправлено через Viber и SMS
+// С дополнительным условием, максимальная жизнь сообщения Viber 60 секунд
+$message3 = $smsApi
+                ->setMode('hybrid')
+                ->setTTL(60)
+                ->messageSend('380001111111', 'TEXT Message', 'YOUR SENDER');
+
+print_r($message1);
+print_r($message2);
+print_r($message3);
+```
+Result:
+```
+Array (
+    [0] => stdClass Object (
+		[phone] => 380001111111
+		[message_id] => f3ab7c22-9481-8d1d-4fa6-00a9e0e6cf67
+		[response_code] => 0
+		[response_status] => OK
+	)
+)
+Array (
+    [0] => stdClass Object (
+		[phone] => 380001111111
+		[message_id] => f4ab7c22-2371-7d2d-4fa6-00a9e0e4cf68
+		[response_code] => 0
+		[response_status] => OK
+	)
+)
+Array (
+    [0] => stdClass Object (
+		[phone] => 380001111111
+		[message_id] => f9ag2d21-3381-8d3d-2fa8-01b9e0e4cf69
+		[response_code] => 0
+		[response_status] => OK
+	)
+)
+```
+----
 
 Example usage Message Status
 ------------
@@ -100,8 +197,11 @@ use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
-print_r($smsApi->messageStatus('f3ab7c22-9481-8d1d-4fa6-00a9e0e6cf67');
-print_r($smsApi->messageStatus(['f4ab7c22-2371-7d2d-4fa6-00a9e0e4cf68']);
+$status = $smsApi->messageStatus('f3ab7c22-9481-8d1d-4fa6-00a9e0e6cf67'); 
+$statusList = $smsApi->messageStatus(['f4ab7c22-2371-7d2d-4fa6-00a9e0e4cf68']);
+
+print_r($status1);
+print_r($statusList);
 ```
 Result:
 ```
@@ -135,10 +235,18 @@ Array (
 )
 ```
 
-Methods
+Methods:
 ------------
 ***
-* getDefaultSenders
-* messageSend
-* messageStatus
+* getSMSDefaultSenders - Получить список Senders для теста СМС
+* getViberDefaultSenders - Получить список Senders для теста Viber
+* messageSend - Отправить сообщение СМС или Viber
+* messageStatus - Проверить статус сообщения
+***
+
+Donate:
+------------
+***
+* Bitcoin (BTC): bc1q7xnavcmr3lt4mpsp7xv740usggypxaa0djy9z9
+* Raven (RVN): RRo5CR8gXLzoV3LHRjj7fRhMP1WxNwgWRY
 ***
