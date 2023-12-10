@@ -1,6 +1,8 @@
 {
     "name": "developingw/turbosmsua",
+    "description": "",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "DevelopingW\\TurboSMSua\\": "src/"
@@ -8,7 +10,7 @@
     },
     "authors": [
         {
-            "name": "fire.anton@gmail.com",
+            "name": "Anton Kalochelitis",
             "email": "developing.w@gmail.com"
         }
     ],
