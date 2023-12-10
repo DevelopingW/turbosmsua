@@ -35,8 +35,7 @@ class TurboSMSAPI extends TurboSMSConnect
      */
     public function messageSend($num, $text, $sender = 'MAGAZIN', $senderViber = '')
     {
-        if (is_int($num) || is_array($num)) {
-        } else {
+        if (!(is_int($num) || is_array($num))) {
             throw new \Exception('$num must be int or array');
         }
 
