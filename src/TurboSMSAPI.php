@@ -120,7 +120,7 @@ class TurboSMSAPI extends TurboSMSConnect
 
         $result = $this->request($method, $data);
         if (in_array($result->response_code == 0, $this->ok_responses)) {
-            return $result->response_result;
+            return (array)$result->response_result;
         } else {
             throw new \Exception($result->response_status);
         }
@@ -170,7 +170,7 @@ class TurboSMSAPI extends TurboSMSConnect
         $method = '/user/balance.json';
         $result = $this->request($method);
         if (in_array($result->response_code == 0, $this->ok_responses)) {
-            return $result->response_result;
+            return (array)$result->response_result;
         } else {
             throw new \Exception($result->response_status);
         }
@@ -213,7 +213,7 @@ class TurboSMSAPI extends TurboSMSConnect
         $method = '/user/senders.json';
         $result = $this->request($method);
         if (in_array($result->response_code == 0, $this->ok_responses)) {
-            return $result->response_result;
+            return (array)$result->response_result;
         } else {
             throw new \Exception($result->response_status);
         }
