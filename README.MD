@@ -85,7 +85,7 @@ Array (
 )
 ```
 
-Example usage Message Send
+Example usage Message Status
 ------------
 ```php
 <?php

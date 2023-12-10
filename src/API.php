@@ -132,6 +132,8 @@ class API extends Connect
     }
 
     /**
+     * Get status by message_id
+     *
      * @param string|array $statusList
      * @return array
      * @throws \Exception
@@ -214,6 +216,8 @@ class API extends Connect
     }
 
     /**
+     * Get free senders from TurboSMS
+     *
      * @return array
      */
     public function getDefaultSenders()
@@ -232,6 +236,8 @@ class API extends Connect
     }
 
     /**
+     * Get Viber senders
+     *
      * @return array
      * @throws \Exception
      */
