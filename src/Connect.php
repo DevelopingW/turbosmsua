@@ -10,9 +10,9 @@
 namespace DevelopingW\TurboSMSua;
 
 /**
- * Class TurboSMSConnect
+ * Class Connect
  */
-class TurboSMSConnect
+class Connect
 {
     protected $apiKey;
     protected static $apiUrl = 'https://api.turbosms.ua';

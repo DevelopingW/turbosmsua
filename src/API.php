@@ -10,9 +10,9 @@
 namespace DevelopingW\TurboSMSua;
 
 /**
- * Class TurboSMSAPI
+ * Class API
  */
-class TurboSMSAPI extends TurboSMSConnect
+class API extends Connect
 {
     /**
      * @param string $apiKey
@@ -30,7 +30,7 @@ class TurboSMSAPI extends TurboSMSConnect
      * @param string $text
      * @param string $sender
      * @param string $senderViber
-     * @return mixed
+     * @return array
      * @throws \Exception
      */
     public function messageSend($num, $text, $sender = 'MAGAZIN', $senderViber = '')
@@ -162,7 +162,7 @@ class TurboSMSAPI extends TurboSMSConnect
     }
 
     /**
-     * @return mixed
+     * @return array
      * @throws \Exception
      */
     public function getUserBalance()
@@ -205,7 +205,7 @@ class TurboSMSAPI extends TurboSMSConnect
     }
 
     /**
-     * @return mixed
+     * @return array
      * @throws \Exception
      */
     public function getUserSenders()
