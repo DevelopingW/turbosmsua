@@ -249,4 +249,5 @@ Donate:
 ***
 * Bitcoin (BTC): bc1q7xnavcmr3lt4mpsp7xv740usggypxaa0djy9z9
 * Raven (RVN): RRo5CR8gXLzoV3LHRjj7fRhMP1WxNwgWRY
+* Neoxa (NEOX): GVoMxomCS6aS1oi4nzwBqFyukecgbm2oVu
 ***
