@@ -38,7 +38,7 @@ Array (
 Example usage Default SMS Allow Senders for Test
 ------------
 
-Желательно в начале сообщение указывать слово Тест
+Если вы тестируете, желательно в начале сообщения указывать слово Тест
 ------------
 ```php
 <?php
@@ -72,14 +72,16 @@ Array (
 
 Example usage Default Viber Allow Senders for Test
 ------------
-Желательно в начале сообщение указывать слово Тест
+Если вы тестируете, желательно в начале сообщения указывать слово Тест
 ------------
 ```php
 <?php
 
 use DevelopingW\TurboSMSua\API;
 
-$senderList = $smsApi = new API($_ENV['TURBOSMS_KEY']);
+$smsApi = new API($_ENV['TURBOSMS_KEY']);
+
+$senderList = $smsApi->getViberDefaultSenders();
 
 print_r($senderList);
 ```
@@ -87,7 +89,7 @@ Result:
 ```
 Array (
     [
-        'Mobibon',
+        
     ]
 )
 ```
@@ -200,7 +202,7 @@ $smsApi = new API($_ENV['TURBOSMS_KEY']);
 $status = $smsApi->messageStatus('f3ab7c22-9481-8d1d-4fa6-00a9e0e6cf67'); 
 $statusList = $smsApi->messageStatus(['f4ab7c22-2371-7d2d-4fa6-00a9e0e4cf68']);
 
-print_r($status1);
+print_r($status);
 print_r($statusList);
 ```
 Result:

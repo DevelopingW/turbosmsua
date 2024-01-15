@@ -4,7 +4,7 @@
  * turbosms.ua HTTP API implementation.
  *
  * @author Anton Kalochelitis <developing.w@gmail.com>
- * @version 2.0.1
+ * @version 2.1.0
  */
 
 namespace DevelopingW\TurboSMSua;
@@ -243,7 +243,6 @@ class API extends Connect
     public function getViberDefaultSenders()
     {
         return [
-            'Mobibon',
         ];
     }
 

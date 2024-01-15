@@ -4,12 +4,12 @@
  * turbosms.ua HTTP API implementation.
  *
  * @author Anton Kalochelitis <developing.w@gmail.com>
- * @version 2.0.1
+ * @version 2.1.0
  */
 
 namespace DevelopingW\TurboSMSua;
 
-class REQUEST_STATUS_
+class REQUEST_STATUS
 {
     const OK = 0;
     const PONG = 1;
