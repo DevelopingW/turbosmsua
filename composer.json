@@ -1,7 +1,15 @@
 {
     "name": "developingw/turbosmsua",
-    "description": "",
+    "description": "TurboSMS HTTP API library",
     "type": "library",
+    "keywords": [
+        "sms",
+        "turbosms",
+        "turbo sms",
+        "ukraine",
+        "api",
+        "TurboSMS HTTP API"
+    ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
