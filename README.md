@@ -2,7 +2,7 @@ TurboSMS HTTP API library
 
 API HELP: https://turbosms.ua/api.html
 
-What is this?
+What is this? 
 -------------
 
 This library implements HTTP api for https://turbosms.ua service.
@@ -38,7 +38,7 @@ Array (
 Example usage Default SMS Allow Senders for Test
 ------------
 
-Если вы тестируете, желательно в начале сообщения указывать слово Тест
+If you are testing, it is preferable to start the message with the word "Test".
 ------------
 ```php
 <?php
@@ -72,7 +72,7 @@ Array (
 
 Example usage Default Viber Allow Senders for Test
 ------------
-Если вы тестируете, желательно в начале сообщения указывать слово Тест
+If you are testing, it is preferable to start the message with the word "Test".
 ------------
 ```php
 <?php
@@ -132,7 +132,7 @@ Array (
 ```
 ----
 
-* Для метода messageSend есть тонкие настройки
+* For the messageSend method, there are fine-tuning settings.
 ```php
 <?php
 
@@ -140,18 +140,18 @@ use DevelopingW\TurboSMSua\API;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
-// Данное сообщение будет отправлено в указанное время
+// This message will be sent at the specified time.
 $message1 = $smsApi
                 ->setStartTime(\DateTime::createFromFormat('d.m.Y H:i', '10.12.2023 9:00'));
                 ->messageSend('380001111111', 'TEXT Message');
                 
-// Данное сообщение будет отправлено через Viber
+// This message will be sent via Viber.
 $message2 = $smsApi
                 ->setMode('viber')
                 ->messageSend('380001111111', 'TEXT Message', 'MAGAZIN');
                 
-// Данное сообщение будет отправлено через Viber и SMS
-// С дополнительным условием, максимальная жизнь сообщения Viber 60 секунд
+// This message will be sent via Viber and SMS.
+// With an additional condition, the maximum lifespan of the Viber message is 60 seconds.
 $message3 = $smsApi
                 ->setMode('hybrid')
                 ->setTTL(60)
@@ -237,7 +237,16 @@ Array (
 )
 ```
 
-Methods:
+Methods ENG:
+------------
+***
+* getSMSDefaultSenders - Get a list of Senders for SMS testing.
+* getViberDefaultSenders - Get a list of Senders for Viber testing.
+* messageSend - Send a SMS or Viber message.
+* messageStatus - Check the status of the message.
+***
+
+Methods RUS:
 ------------
 ***
 * getSMSDefaultSenders - Получить список Senders для теста СМС

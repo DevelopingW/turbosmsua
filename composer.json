@@ -1,28 +1,34 @@
 {
-    "name": "developingw/turbosmsua",
-    "description": "TurboSMS HTTP API library",
-    "type": "library",
-    "keywords": [
-        "sms",
-        "turbosms",
-        "turbo sms",
-        "ukraine",
-        "api",
-        "TurboSMS HTTP API"
-    ],
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "DevelopingW\\TurboSMSua\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Anton Kalochelitis",
-            "email": "developing.w@gmail.com"
-        }
-    ],
-    "require": {
-        "php" : ">=5.4"
+  "name": "developingw/turbosmsua",
+  "description": "TurboSMS HTTP API library, This package allows easy notification sending using [turbosms.ua](https://turbosms.ua). Optimized for php5.4.",
+  "homepage": "https://github.com/DevelopingW/turbosmsua",
+  "type": "library",
+  "keywords": [
+    "sms",
+    "turbosms",
+    "turbo-sms",
+    "turbo sms",
+    "ukraine",
+    "api",
+    "TurboSMS HTTP API",
+    "ТурбоСМС",
+    "СМС"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "DevelopingW\\TurboSMSua\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Anton Kalochelitis",
+      "email": "developing.w@gmail.com",
+      "homepage": "https://w-develop.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  }
 }
