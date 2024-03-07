@@ -27,7 +27,7 @@ $balance = $smsApi->getUserBalance();
 print_r($balance);
 ```
 Result:
-```
+```php
 Array (
     [balance] => 2106.42
 )
@@ -52,7 +52,7 @@ $senderList = $smsApi->getSMSDefaultSenders();
 print_r($senderList);
 ```
 Result:
-```
+```php
 Array (
     [
         'TAXI',
@@ -86,7 +86,7 @@ $senderList = $smsApi->getViberDefaultSenders();
 print_r($senderList);
 ```
 Result:
-```
+```php
 Array (
     [
         
@@ -102,6 +102,7 @@ Example usage Message Send
 <?php
 
 use DevelopingW\TurboSMSua\API;
+use DevelopingW\TurboSMSua\REQUEST_CODE;
 
 $smsApi = new API($_ENV['TURBOSMS_KEY']);
 
@@ -110,9 +111,16 @@ $message2 = $smsApi->messageSend('380001111111', 'TEXT Message', 'MAGAZIN');
 
 print_r($message1);
 print_r($message2);
+
+$messageList = array_merge($message1, $message2);
+foreach ($messageList as $m) {
+    print_r(REQUEST_CODE::getEN($m['response_code']));
+    print_r(REQUEST_CODE::getRU($m['response_code']));
+    print_r(REQUEST_CODE::getUA($m['response_code']));
+}
 ```
 Result:
-```
+```php
 Array (
     [0] => stdClass Object (
 		[phone] => 380001111111
@@ -129,6 +137,10 @@ Array (
 		[response_status] => OK
 	)
 )
+
+"Request processed successfully."
+"Запрос обработан успешно."
+"Запит оброблено успішно."
 ```
 ----
 
@@ -162,7 +174,7 @@ print_r($message2);
 print_r($message3);
 ```
 Result:
-```
+```php
 Array (
     [0] => stdClass Object (
 		[phone] => 380001111111
@@ -206,7 +218,7 @@ print_r($status);
 print_r($statusList);
 ```
 Result:
-```
+```php
 Array (
     Array (
         [0] => stdClass Object (

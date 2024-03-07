@@ -1,6 +1,6 @@
 {
   "name": "developingw/turbosmsua",
-  "description": "TurboSMS HTTP API library, This package allows easy notification sending using [turbosms.ua](https://turbosms.ua). Optimized for php5.4.",
+  "description": "TurboSMS HTTP API library, This package allows easy notification sending using [turbosms.ua](https://turbosms.ua). Optimized for php5.4 and above",
   "homepage": "https://github.com/DevelopingW/turbosmsua",
   "type": "library",
   "keywords": [
@@ -12,7 +12,10 @@
     "api",
     "TurboSMS HTTP API",
     "ТурбоСМС",
-    "СМС"
+    "СМС",
+    "Украина",
+    "Україна",
+    "Ukraine"
   ],
   "license": "MIT",
   "autoload": {
